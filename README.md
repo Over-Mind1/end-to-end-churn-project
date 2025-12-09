@@ -1,4 +1,4 @@
-````
+
 # 🏦 End-to-End Churn Prediction System
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
@@ -42,7 +42,7 @@ The system includes a full machine learning lifecycle: from data preprocessing a
 
 The pipeline consists of offline training (preprocessing, Optuna tuning, SHAP selection) and online inference (FastAPI validation and prediction).
 
-![Project Architecture](end-to-end-churn-project/assests/arch.png)
+![Project Architecture](/assests/arch.png)
 
 ---
 
@@ -222,6 +222,3 @@ This project is licensed under the **MIT License**.
   * Special thanks to the open-source communities behind FastAPI, Scikit-Learn, and XGBoost.
 
 <!-- end list -->
-
-```
-```
