@@ -3,6 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-green)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
 ![ML](https://img.shields.io/badge/XGBoost-CatBoost-orange)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -16,7 +17,8 @@ The system includes a full machine learning lifecycle: from data preprocessing a
 - [Business Context](#-business-context)
 - [Project Architecture](#-project-architecture)
 - [Project Structure](#-project-structure)
-- [Installation](#-installation)
+- [Installation (Local)](#-installation-local)
+- [Run with Docker](#-run-with-docker)
 - [Usage](#-usage)
 - [API Documentation](#-api-documentation)
 - [Model & Pipeline Details](#-model--pipeline-details)
@@ -71,6 +73,7 @@ The pipeline consists of offline training (preprocessing, Optuna tuning, SHAP se
 │   ├── CustomerData.py             # Pydantic schemas for validation
 │   ├── FeatureEngineering.py       # Custom transformation logic
 │   ├── inference.py                # Prediction logic
+│   ├── .env.example
 │   └── __init__.py
 │
 ├── Notebooks
@@ -79,13 +82,15 @@ The pipeline consists of offline training (preprocessing, Optuna tuning, SHAP se
 │
 ├── assests/                        # Images and diagrams
 ├── main.py                         # FastAPI application entry point
+├── Dockerfile
+├── .dockerignore
 ├── README.md
 └── requirements.txt                # Project dependencies
 ````
 
 -----
 
-## ⚙️ Installation
+## ⚙️ Installation (Local)
 
 ### 1\. Clone the Repository
 
@@ -118,11 +123,31 @@ pip install -r requirements.txt
 
 -----
 
+## 🐳 Run with Docker
+
+If you prefer not to set up a local Python environment, you can run the application using Docker.
+
+### 1\. Build the Docker Image
+
+```bash
+docker build -t churn-prediction-api .
+```
+
+### 2\. Run the Container
+
+```bash
+docker run -d -p 8000:8000 --name churn-app churn-prediction-api
+```
+
+The API will now be accessible at `http://localhost:8000`.
+
+-----
+
 ## 🚀 Usage
 
-### Running the API Server
+### Running the API Server (Locally)
 
-To start the FastAPI server locally:
+If you followed the "Installation (Local)" steps, start the server with:
 
 ```bash
 # If main.py is in the root directory:
@@ -132,14 +157,12 @@ uvicorn main:app --reload
 uvicorn app.main:app --reload
 ```
 
-The server will start at `http://127.0.0.1:8000`.
-
 ### Accessing Documentation
 
-FastAPI provides automatic interactive documentation. Once the server is running, visit:
+FastAPI provides automatic interactive documentation. Once the server is running (Local or Docker), visit:
 
   * **Swagger UI:** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-  * **ReDoc:** [http://127.0.0.1:8000/redoc](https://www.google.com/search?q=http://127.0.0.1:8000/redoc)
+  * **ReDoc:** [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
 -----
 

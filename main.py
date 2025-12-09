@@ -12,7 +12,7 @@ def root():
     return {"status": "API is running"}
 
 @app.post("/predict_churn/", tags=["Prediction"])
-def predict_churn_endpoint(data: CustomerData, model_name: str) -> dict:
+async def predict_churn_endpoint(data: CustomerData, model_name: str) -> dict:
     """
     Predict customer churn using the specified model.
 
