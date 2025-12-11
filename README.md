@@ -95,8 +95,9 @@ The pipeline consists of offline training (preprocessing, Optuna tuning, SHAP se
 ### 1\. Clone the Repository
 
 ```bash
-git clone [https://github.com/Over-Mind1/end-to-end-churn-project.git](https://github.com/Over-Mind1/end-to-end-churn-project.git)
-cd end-to-end-churn-project
+git clone https://github.com/Over-Mind1/end-to-end-churn-project.git
+
+cd end-to-end-churn-project.git
 ```
 
 ### 2\. Create a Virtual Environment
@@ -130,13 +131,13 @@ If you prefer not to set up a local Python environment, you can run the applicat
 ### 1\. Build the Docker Image
 
 ```bash
-docker build -t churn-prediction-api .
+docker build -t end-to-end-churn-project .
 ```
 
 ### 2\. Run the Container
 
 ```bash
-docker run -d -p 8000:8000 --name churn-app churn-prediction-api
+sudo docker run -p 8000:8000  end-to-end-churn-project
 ```
 
 The API will now be accessible at `http://localhost:8000`.

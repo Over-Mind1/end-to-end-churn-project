@@ -6,9 +6,9 @@ import joblib
 load_dotenv()
 
 #-- Constants from environment variables --#
-APP_NAME = os.getenv('APP_NAME')
-VERSION = os.getenv('VERSION')
-SECRET_KEY = os.getenv('SECRET_KEY')
+APP_NAME = os.getenv('APP_NAME', 'DefaultAppName')
+VERSION = os.getenv('VERSION', '1.0.0')
+
 
 #-- base paths --#
 BASE_PATH = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
